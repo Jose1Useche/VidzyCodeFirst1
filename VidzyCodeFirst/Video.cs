@@ -11,5 +11,6 @@ namespace VidzyCodeFirst
         public Genre Genre { get; set; }
         public byte GenreId { get; set; }
         public Classification Classification { get; set; }
+        public IList<Tag> Tags { get; set; }
     }
 }

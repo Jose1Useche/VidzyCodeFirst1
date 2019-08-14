@@ -12,6 +12,16 @@ namespace VidzyCodeFirst
         {
             modelBuilder.Configurations.Add(new VideoConfiguration());
             modelBuilder.Configurations.Add(new GenreConfiguration());
+
+            modelBuilder.Entity<Tag>()
+                .HasMany(t => t.Videos)
+                .WithMany(v => v.Tags)
+                .Map(m => 
+                {
+                    m.ToTable("VideoTags");
+                    m.MapLeftKey("TagId");
+                    m.MapRightKey("VideoId");
+                });
         }
     }
 }

@@ -20,7 +20,8 @@ namespace VidzyCodeFirst.EntityConfigurations
 
             HasRequired(v => v.Genre)
             .WithMany(g => g.Video)
-            .HasForeignKey(v => v.GenreId);
+            .HasForeignKey(v => v.GenreId)
+            .WillCascadeOnDelete(false);
         }
     }
 }
